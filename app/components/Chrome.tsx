@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { contact } from "../data";
 
 function Mark() {
   return (
@@ -33,10 +32,6 @@ export function Footer() {
       <div className="band" aria-hidden="true" />
       <div className="wrap foot">
         <span>&copy; 2026 Izzah Farhanah Faizul</span>
-        <span>
-          Built with Next.js, deployed on Vercel.{" "}
-          <a href={`mailto:${contact.email}`}>{contact.email}</a>
-        </span>
       </div>
     </footer>
   );
