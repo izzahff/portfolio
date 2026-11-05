@@ -63,16 +63,12 @@ export const projects: Project[] = [
   {
     slug: "chainpass",
     name: "ChainPass",
-    context: "Colosseum Breakout Hackathon 2025, DeFi track",
+    context: "Breakout Hackathon 2025",
     summary:
       "A ticketing platform on Solana that issues tickets as NFTs. I built the front end and connected it to the team's REST APIs for ticket validation and resale.",
     role: "Front-end developer",
     stack: ["React", "Tailwind CSS", "Solana", "REST APIs"],
-    links: [
-      { label: "Colosseum project page", href: "https://colosseum.com/arena/projects/chainpass" },
-      { label: "Product demo", href: "https://youtu.be/mR6ZS8mzN4U" },
-      { label: "Source on GitHub", href: "https://github.com/izzahff/chainpass-breakout" },
-    ],
+    links: [{ label: "Source on GitHub", href: "https://github.com/izzahff/chainpass-breakout" }],
   },
   {
     slug: "elms",
