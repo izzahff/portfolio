@@ -38,6 +38,9 @@ export default function Home() {
               <a className="btn ghost" href={contact.linkedin} target="_blank" rel="noopener noreferrer">
                 LinkedIn
               </a>
+              <a className="btn ghost" href={contact.resume} download>
+                Download resume (PDF)
+              </a>
             </div>
           </div>
           <Songket />
@@ -220,6 +223,9 @@ export default function Home() {
             <a href={`mailto:${contact.email}`}><span>Email</span>{contact.email}</a>
             <a href={contact.linkedin} target="_blank" rel="noopener noreferrer">
               <span>LinkedIn</span>{contact.linkedinLabel}
+            </a>
+            <a href={contact.resume} download>
+              <span>Resume</span>Download PDF, 2 pages
             </a>
           </div>
         </section>

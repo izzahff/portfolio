@@ -2,6 +2,7 @@ export const contact = {
   email: "izzahfarhanah77@gmail.com",
   linkedin: "https://www.linkedin.com/in/izzahfarhanah",
   linkedinLabel: "linkedin.com/in/izzahfarhanah",
+  resume: "/Izzah_Farhanah_Faizul_Resume.pdf",
 };
 
 export const facts = [
