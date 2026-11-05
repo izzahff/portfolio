@@ -7,7 +7,7 @@ const description =
   "Izzah Farhanah Faizul, full-stack software engineer. Software engineer intern at Cloud Connect, graduating from UiTM in March 2027.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://izzahfarhanah.vercel.app"),
+  metadataBase: new URL("https://izzahfff.vercel.app"),
   title: { default: "Izzah Farhanah, full-stack software engineer", template: "%s, Izzah Farhanah" },
   description,
   openGraph: { title: "Izzah Farhanah", description, type: "website", url: "/" },

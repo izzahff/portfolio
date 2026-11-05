@@ -1,4 +1,4 @@
-# izzahfarhanah.vercel.app
+# izzahfff.vercel.app
 
 Personal site of Izzah Farhanah Faizul, full-stack software engineer.
 
