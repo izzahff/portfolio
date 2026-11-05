@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Header, Footer } from "./components/Chrome";
-import Ocean from "./components/Ocean";
 import {
   contact,
   facts,
@@ -42,10 +41,6 @@ export default function Home() {
             Software engineer intern at Cloud Connect. Graduating from UiTM in March 2027 and open to graduate
             software engineering roles anywhere.
           </p>
-        </section>
-
-        <section className="wide" aria-label="Ocean banner">
-          <Ocean />
         </section>
 
         <section className="col status" aria-labelledby="avail">
