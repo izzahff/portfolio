@@ -101,7 +101,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 @keyframes bloom { to { opacity: 1; } }
 
 /* Status under the stage */
-.status { padding-top: 8px; }
+.status { padding-top: 28px; }
 .loud { font-size: 1.05rem; text-transform: uppercase; letter-spacing: 0.02em; }
 .loud.big { font-size: clamp(1.8rem, 4.4vw, 2.8rem); line-height: 1.1; letter-spacing: 0; }
 .boxes { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 20px; }

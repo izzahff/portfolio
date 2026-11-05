@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Songket from "./components/Songket";
 import { Header, Footer } from "./components/Chrome";
 import {
   contact,
@@ -41,6 +42,16 @@ export default function Home() {
             Software engineer intern at Cloud Connect. Graduating from UiTM in March 2027 and open to graduate
             software engineering roles anywhere.
           </p>
+        </section>
+
+        <section className="stage wide" aria-label="Class of 2027">
+          <div className="lockup">
+            <span className="lockup-box">izzah</span>
+            <span className="lockup-class">class of</span>
+            <span className="lockup-year">&rsquo;27</span>
+            <span className="lockup-role">Graduate software engineer</span>
+          </div>
+          <Songket />
         </section>
 
         <section className="col status" aria-labelledby="avail">
