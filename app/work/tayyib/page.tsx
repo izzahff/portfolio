@@ -21,7 +21,7 @@ export default function TayyibCase() {
       <Header />
       <main id="main">
         <article>
-          <div className="wrap case">
+          <div className="col case">
             <Link href="/#work" className="back">Back to all work</Link>
             <h1>Tayyib</h1>
             <p className="lede">
@@ -33,7 +33,7 @@ export default function TayyibCase() {
             </p>
           </div>
 
-          <section className="wrap section" aria-labelledby="why-h">
+          <section className="section" aria-labelledby="why-h">
             <h2 id="why-h">Why I built it</h2>
             <div className="prose">
               <p>
@@ -48,7 +48,7 @@ export default function TayyibCase() {
             </div>
           </section>
 
-          <section className="wrap section" aria-labelledby="how-h">
+          <section className="section" aria-labelledby="how-h">
             <h2 id="how-h">How a run works</h2>
             <div>
               <ol className="flow">
@@ -66,7 +66,7 @@ export default function TayyibCase() {
             </div>
           </section>
 
-          <section className="wrap section" aria-labelledby="method-h">
+          <section className="section" aria-labelledby="method-h">
             <h2 id="method-h">The method, and where I changed it</h2>
             <div>
               <div className="panel">
@@ -105,7 +105,7 @@ export default function TayyibCase() {
             </div>
           </section>
 
-          <section className="wrap section" aria-labelledby="spec-h">
+          <section className="section" aria-labelledby="spec-h">
             <h2 id="spec-h">Spec first, then code</h2>
             <div className="prose">
               <p>
@@ -126,7 +126,7 @@ export default function TayyibCase() {
             </div>
           </section>
 
-          <div className="wrap">
+          <div>
             <p className="disclaimer">
               Tayyib is a personal engineering project that follows a documented, cited method. It is not a Shariah
               board ruling or financial advice.

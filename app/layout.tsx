@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import "@fontsource/gloock/400.css";
-import "@fontsource-variable/hanken-grotesk";
+import "@fontsource-variable/archivo/wdth.css";
+import "@fontsource-variable/archivo/wdth-italic.css";
 import "./globals.css";
 
 const description =
@@ -14,11 +14,16 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image", title: "Izzah Farhanah", description },
 };
 
-export const viewport: Viewport = { themeColor: "#13213b" };
+export const viewport: Viewport = { themeColor: "#121212" };
+
+const themeScript = `try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}`;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body>
         <a className="skip" href="#main">Skip to content</a>
         {children}
