@@ -30,7 +30,7 @@ export default function Home() {
               deployment.
             </p>
             <p className="avail">
-              Software engineer intern at Cloud Connect, working on systems for Malaysian government agencies.
+              Software engineer intern at Cloud Connect, working on projects for JPA, KPM and Majlis Perbandaran Selayang.
               I graduate from UiTM in March 2027 and can start a graduate role from April 2027, anywhere.
             </p>
             <div className="actions">

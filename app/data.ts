@@ -7,7 +7,7 @@ export const contact = {
 export const facts = [
   { value: "3.74", label: "CGPA in Information Systems Engineering at UiTM" },
   { value: "6", label: "Dean's Awards, one every semester so far" },
-  { value: "60", label: "JPA officers I trained on the AICAF framework" },
+  { value: "60", label: "JPA participants I coached on the AICAF framework" },
   { value: "4", label: "Professional certifications, from IREB, IBM and DataCamp" },
 ];
 
@@ -53,7 +53,7 @@ export const projects: Project[] = [
     name: "iPANTAU",
     context: "Internship, Cloud Connect",
     summary:
-      "A Flutter mobile app with GPS check-in and photo upload. I built the app and its Node.js and Prisma REST API, stored the photos in Cloudflare R2, and set up GitHub Actions to deploy it to Render.",
+      "A Flutter mobile app with GPS check-in and photo upload. I built the app and its Node.js and Prisma REST API, stored the photos in Cloudflare R2, set up GitHub Actions to deploy it to Render, and debugged its Android permission issues.",
     role: "Full-stack developer",
     stack: ["Flutter", "Node.js", "Prisma", "Cloudflare R2", "GitHub Actions", "Render"],
     links: [],
@@ -101,24 +101,18 @@ export const jobs: Job[] = [
     org: "Cloud Connect Sdn. Bhd.",
     place: "Shah Alam",
     from: "Mar 2026",
-    to: "Now",
+    to: "Mar 2027",
     points: [
-      "Trained 60 JPA officers on the AICAF framework and its six component frameworks, so they could model requirements for JPA's new HRM system.",
-      "Ran a five-day web development course for JPA staff on Docker, Node.js, PostgreSQL, Strapi, Vue, Nuxt and Tailwind, and marked 14 hands-on exercises.",
-      "Built and deployed iPANTAU, a Flutter app on a Node.js and Prisma API, with CI/CD through GitHub Actions.",
-      "Tested every module of JWINS, the Ministry of Education's national school timetabling system, and co-wrote its user manual.",
+      "Built and deployed iPANTAU, a Flutter app on a Node.js and Prisma API, with CI/CD through GitHub Actions to Render.",
+      "Contributed to TAMS, a role-based system for staff and admins, running OpenSpec spec-driven cycles for features such as a QR meal check-in module, and worked on its mobile and desktop redesign.",
       "Built a Nuxt 3 mockup of STDI, an online booking system for Majlis Perbandaran Selayang, on Vercel with Upstash Redis.",
-      "Deployed a NestJS SMS service for a tender demo on Render, Neon PostgreSQL and Upstash Redis.",
-      "Wrote an n8n workflow that turns client emails into GitLab issues, so nobody on the team types tickets by hand.",
+      "Deployed an existing NestJS SMS provider project for a tender demo on Render, Neon PostgreSQL and Upstash Redis.",
+      "Built an n8n workflow that turns client emails into GitLab issues, cutting manual work for a colleague.",
+      "Tested each module of JWINS, the Ministry of Education's national school timetabling system, and helped write its user manual.",
+      "Facilitated a modern app development course for JPA staff on Docker, Node.js, PostgreSQL, Strapi, Vue, Nuxt and Tailwind, and corrected 14 training exercises.",
+      "Coached 60 JPA participants on AICAF and its six frameworks for JPA's new HRM system.",
+      "Worked in a team that runs Agile Scrum.",
     ],
-  },
-  {
-    title: "Contract Sales Assistant and Cashier",
-    org: "Manjaku (MKSE)",
-    place: "Shah Alam",
-    from: "Aug 2025",
-    to: "Oct 2025",
-    points: ["Served customers, handled cash and kept the shelves stocked."],
   },
   {
     title: "Part-time Workshop Facilitator",
@@ -126,7 +120,7 @@ export const jobs: Job[] = [
     place: "Shah Alam",
     from: "Aug 2024",
     to: "Sep 2024",
-    points: ["Guided children aged 7 to 10 through hands-on STEM activities and fixed the kit when it broke."],
+    points: ["Mentored children aged 7 to 10 through hands-on STEM activities and handled setup and basic troubleshooting."],
   },
 ];
 
@@ -148,7 +142,7 @@ export const education = [
 ];
 
 export const certifications = [
-  { name: "Certified Professional for Requirements Engineering, Foundation Level", issuer: "IREB", date: "Aug 2025" },
+  { name: "Certified Professional for Requirements Engineering, Foundation Level", issuer: "IREB, credential MY-CPREFL-2025-00012", date: "Aug 2025" },
   { name: "AI Engineer for Data Scientists Associate", issuer: "DataCamp", date: "Sep 2026" },
   { name: "Introduction to Software Engineering", issuer: "IBM", date: "Oct 2026" },
   { name: "Introduction to DevOps", issuer: "IBM", date: "Oct 2026" },
@@ -164,28 +158,28 @@ export const leadership = [
     role: "External Relations Exco",
     org: "Information Systems Engineering Club, UiTM",
     date: "Oct 2024 to Feb 2026",
-    detail: "Ran outside engagement and sat on the organising committees for UiTM Mini Hackathon 2025 and Ideathon Innovation Challenge 2025.",
+    detail: "Led outside engagement for programmes such as Kursus Kepimpinan SK Sebatu 2025, and sat on the organising committees for UiTM Mini Hackathon 2025 and Ideathon Innovation Challenge 2025.",
   },
   {
     role: "Secretary",
     org: "UiTM Blockchain Association",
     date: "Oct 2024 to Jul 2025",
-    detail: "Coordinated UiTM Mini Hackathon 2025 and led Entrepreneurship Day fundraising to RM1,998.50 in sales, past the target.",
+    detail: "Helped coordinate stakeholders and logistics for UiTM Mini Hackathon 2025. Supported the 2024 Entrepreneurship Day fundraising and led the 2025 one, which beat its target with RM1,998.50 in sales.",
   },
   {
     role: "Event Volunteer",
     org: "dEVMatch Hackathon 2024, APUBCC",
     date: "Aug 2024",
-    detail: "Handled registration, venue setup and tech support for more than 30 teams.",
+    detail: "Helped with registration and venue setup, and gave basic tech support to more than 30 teams.",
   },
 ];
 
 export const skills = [
-  { group: "Languages", items: "TypeScript, JavaScript, Python, Dart, Java, SQL, C++" },
-  { group: "Front end", items: "Vue, Nuxt, React, Flutter, Tailwind CSS" },
-  { group: "Back end", items: "Node.js, NestJS, Strapi, Prisma, REST API design" },
-  { group: "Data", items: "PostgreSQL, MySQL, Oracle SQL, Neon, Redis" },
-  { group: "Shipping", items: "Git, GitHub Actions, GitLab, Docker, Render, Vercel, Cloudflare R2, n8n" },
-  { group: "Testing", items: "Cypress, pytest, functional and manual testing" },
-  { group: "Ways of working", items: "Spec-driven development with OpenSpec, Agile Scrum, domain-driven design, EventStorming, UML" },
+  { group: "Languages", items: "TypeScript, JavaScript, Python, Dart, Java, SQL, C++, HTML, CSS" },
+  { group: "Front end", items: "Vue, Nuxt, React, Flutter, Tailwind CSS, Bootstrap" },
+  { group: "Back end", items: "Node.js, Strapi, Prisma, REST APIs" },
+  { group: "Data", items: "PostgreSQL, MySQL, Oracle SQL, ERD design, query optimisation" },
+  { group: "Shipping", items: "Git, GitHub Actions, GitLab, Render, Vercel, Cloudflare R2, n8n, Docker" },
+  { group: "Testing", items: "Functional and manual testing, debugging, pytest, Cypress (training)" },
+  { group: "Ways of working", items: "Spec-driven development with OpenSpec, Agile Scrum, OOP, SDLC, user stories, UML" },
 ];
