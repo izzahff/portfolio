@@ -5,14 +5,14 @@ import { tayyib } from "../../data";
 
 export const metadata: Metadata = {
   title: "Tayyib",
-  description: "How Izzah Farhanah is building Tayyib, a Shariah stock screener in Python with an audit trail for every decision.",
+  description: "How Izzah Farhanah built Tayyib, which checks large US companies against Shariah screening rules and shortlists the strongest each week.",
 };
 
 const steps = [
-  { name: "Resolve", detail: "Load the S&P 500 list from a CSV checked into the repo" },
-  { name: "Fetch", detail: "Pull balance sheet and income figures from the FMP API" },
-  { name: "Screen", detail: "Apply both ratios and attach fixed reason strings" },
-  { name: "Persist", detail: "Write every result, failures included, to PostgreSQL" },
+  { name: "Fetch", detail: "Pull balance sheet, income and price data from the FMP API" },
+  { name: "Screen", detail: "Run both checks and attach a fixed reason to every result" },
+  { name: "Rank", detail: "Order the passing stocks by their six-month return" },
+  { name: "Report", detail: "Save every decision, update the dashboard, send the Telegram summary" },
 ];
 
 export default function TayyibCase() {
@@ -25,13 +25,36 @@ export default function TayyibCase() {
             <Link href="/#work" className="back">Back to all work</Link>
             <h1>Tayyib</h1>
             <p className="lede">
-              A Shariah stock screener that records which rule each stock broke, and by how much.
+              {tayyib.oneLiner}
             </p>
             <p className="avail">
-              Personal project. Solo build in Python, started August 2026 and still in progress.{" "}
-              <a href={tayyib.repo} target="_blank" rel="noopener noreferrer">Source on GitHub</a>.
+              Personal project. Solo build, started August 2026 and still in progress.
             </p>
+            <div className="boxes">
+              <a className="box" href={tayyib.live} target="_blank" rel="noopener noreferrer">Live demo</a>
+              <a className="box" href={tayyib.repo} target="_blank" rel="noopener noreferrer">Source on GitHub</a>
+            </div>
           </div>
+
+          <section className="section" aria-labelledby="simple-h">
+            <h2 id="simple-h">In 30 seconds</h2>
+            <div className="prose">
+              <p>
+                Many Muslims avoid investing in companies that rely heavily on borrowing or earn money from interest.
+                An international standard, AAOIFI, turns this into simple checks. Tayyib uses two of them.
+              </p>
+              <ul className="ticks" style={{ marginTop: 16 }}>
+                {tayyib.ratios.map((r) => (
+                  <li key={r.name}><strong>{r.name}.</strong> {r.plain}</li>
+                ))}
+              </ul>
+              <p style={{ marginTop: 16 }}>
+                Tayyib pulls real company financial data, runs both checks automatically, ranks the companies that
+                pass by how well their stock has done over six months, and records every decision. You can see
+                exactly why a stock passed or failed.
+              </p>
+            </div>
+          </section>
 
           <section className="section" aria-labelledby="why-h">
             <h2 id="why-h">Why I built it</h2>
@@ -41,9 +64,9 @@ export default function TayyibCase() {
                 stock broke and the numbers behind it, so you can check the call yourself.
               </p>
               <p>
-                So Tayyib classifies each ticker as compliant, non-compliant or unscreened, and it never guesses.
-                If the data is missing, the stock stays unscreened and the record says which figure was missing.
-                It sends alerts only. You still place every trade yourself.
+                So Tayyib labels each stock compliant, non-compliant or unscreened, and it never guesses. If the data
+                is missing, the stock stays unscreened and the record says which figure was missing. It sends alerts
+                only. You still place every trade yourself.
               </p>
             </div>
           </section>
@@ -58,9 +81,13 @@ export default function TayyibCase() {
               </ol>
               <div className="prose" style={{ marginTop: 40 }}>
                 <p>
-                  One bad ticker can't sink a run. If the API fails for one stock, the pipeline records that stock
-                  as unscreened with the reason <code>financial data fetch failed</code> and moves on to the next.
-                  A pipeline-wide failure marks the whole run as failed, so I never mistake half a run for a full one.
+                  A GitHub Actions job runs the whole pipeline every Monday at 9am Malaysia time. One bad ticker can't
+                  sink a run. If the API fails for one stock, the pipeline records that stock as unscreened with the
+                  reason <code>financial data fetch failed</code> and moves on. A pipeline-wide failure marks the whole
+                  run as failed and sends a Telegram alert, so I never mistake half a run for a full one.
+                </p>
+                <p>
+                  The free data plan covers 41 S&amp;P 500 companies, so the weekly run screens that sample for now.
                 </p>
               </div>
             </div>
@@ -71,7 +98,7 @@ export default function TayyibCase() {
             <div>
               <div className="panel">
                 <table className="ratios" style={{ marginTop: 0 }}>
-                  <caption>Two ratios, measured against total assets</caption>
+                  <caption>Two ratios, with the formulas Tayyib uses</caption>
                   <thead>
                     <tr>
                       <th scope="col">Ratio</th>
@@ -92,10 +119,17 @@ export default function TayyibCase() {
               </div>
               <div className="prose" style={{ marginTop: 32 }}>
                 <p>
-                  AAOIFI Shariah Standard No. 21 sets three ratios against market capitalisation. I use two, against
-                  total assets. Market cap swings too much to compute reliably from the free data tier, and that tier
-                  does not expose interest-bearing deposits cleanly. I folded that ratio into the income ratio and
-                  wrote the deviation into the spec, with the reasons, so anyone reading the results knows.
+                  AAOIFI Shariah Standard No. 21 sets three ratios against market capitalisation. I use two, with debt
+                  measured against total assets. Market cap swings too much to compute reliably from the free data
+                  tier, and that tier does not expose interest-bearing deposits cleanly. I folded that ratio into the
+                  income ratio and wrote the deviation into the spec, with the reasons, so anyone reading the results
+                  knows.
+                </p>
+                <p>
+                  The first live run taught me something. It passed only 1 of 25 stocks, because I had divided total
+                  liabilities by total assets. That counted supplier bills and deferred revenue as debt, and called
+                  Apple 72% indebted. AAOIFI counts only interest-bearing debt, so I wrote a new spec, switched the
+                  numerator to total debt, and stopped losses from cancelling out real interest income.
                 </p>
                 <p>
                   A value equal to the limit passes. The spec states that boundary rule outright, so a ratio of
@@ -110,17 +144,17 @@ export default function TayyibCase() {
             <div className="prose">
               <p>
                 I write every capability as an OpenSpec proposal before any code exists. I review the requirements,
-                lock them, then build to them. Four changes have gone through that cycle and sit in the archive with
-                their full review history. The repo holds 48 tests across five test modules, and the screening module
-                has full coverage.
+                lock them, then build to them. Nine changes have gone through that cycle and sit in the archive with
+                their full review history. The repo holds 83 tests, and the screening module has full coverage.
               </p>
               <h3>Built and tested</h3>
               <ul className="ticks">
                 {tayyib.built.map((b) => <li key={b}>{b}</li>)}
               </ul>
               <h3>Up next</h3>
-              <p>{tayyib.next.join(", ")}. The ranking step will score compliant stocks on momentum, and the weekly
-                Telegram alert will list new entries, exits and any failed runs.</p>
+              <ul className="ticks">
+                {tayyib.next.map((b) => <li key={b}>{b}</li>)}
+              </ul>
               <h3>Stack</h3>
               <p>{tayyib.stack.join(", ")}.</p>
             </div>

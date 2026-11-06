@@ -85,9 +85,11 @@ export default function Home() {
               <p className="tag">Now building</p>
               <h3 id="tayyib-h">{tayyib.name}</h3>
               <p className="meaning">Personal project. {tayyib.meaning}.</p>
+              <p className="summary"><strong>{tayyib.oneLiner}</strong></p>
               <p className="summary">{tayyib.summary}</p>
               <p className="stack-line"><Dots items={tayyib.stack} /></p>
               <div className="boxes left">
+                <a className="box inv" href={tayyib.live} target="_blank" rel="noopener noreferrer">Live demo</a>
                 <Link className="box inv" href="/work/tayyib">Case study</Link>
                 <a className="box inv" href={tayyib.repo} target="_blank" rel="noopener noreferrer">Source</a>
               </div>
@@ -100,7 +102,7 @@ export default function Home() {
                     <tr key={r.name}>
                       <th scope="row">
                         {r.name}
-                        <span>{r.formula}</span>
+                        <span>{r.plain}</span>
                       </th>
                       <td>{r.limit}</td>
                     </tr>

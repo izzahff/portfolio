@@ -27,25 +27,30 @@ export const tayyib = {
   name: "Tayyib",
   meaning: "Arabic for pure and good",
   status: "In progress",
+  oneLiner:
+    "Tayyib automatically checks which big US companies pass Shariah screening rules for Muslim investors, then shortlists the strongest ones each week.",
   summary:
-    "Tayyib screens S&P 500 stocks against AAOIFI Shariah rules and records the reason behind every result. I am building it alone, writing and locking each spec in OpenSpec before any code goes in.",
-  stack: ["Python", "UV", "SQLModel", "PostgreSQL", "pytest", "Ruff", "FMP API", "Docker"],
+    "It runs two AAOIFI-based checks on real company financials, ranks the stocks that pass by six-month momentum, and records the reason behind every decision. I am building it alone, writing and locking each spec in OpenSpec before any code goes in.",
+  stack: ["Python", "UV", "SQLModel", "PostgreSQL", "Supabase", "Next.js", "GitHub Actions", "Telegram Bot API", "FMP API", "pytest"],
   ratios: [
-    { name: "Debt ratio", formula: "Total liabilities / total assets", limit: "30%" },
+    { name: "Debt check", plain: "Does the company owe 30% or less of what it owns?", formula: "Interest-bearing debt / total assets", limit: "30%" },
     {
-      name: "Non-permissible income",
-      formula: "(Interest + other non-operating income) / revenue",
+      name: "Income check",
+      plain: "Does 5% or less of its revenue come from interest or other non-permissible sources?",
+      formula: "(Interest income + other non-operating income) / revenue",
       limit: "5%",
     },
   ],
   built: [
-    "AAOIFI compliance screening, with 100% test coverage",
-    "Result persistence in PostgreSQL, including failed and unscreened tickers",
-    "Pipeline orchestration that isolates a failed ticker from the rest of the run",
-    "Ticker universe resolution for the S&P 500 list, failing fast on bad config",
+    "AAOIFI screening that labels each stock compliant, non-compliant or unscreened, with a fixed reason",
+    "Momentum ranking of the passing stocks on their 126-day return",
+    "A weekly run every Monday on GitHub Actions, with a Telegram summary of the new list",
+    "A live Next.js dashboard showing the list, every verdict with its numbers, and the run history",
+    "An audit trail in PostgreSQL that keeps every decision, failures included",
   ],
-  next: ["Momentum ranking", "Weekly Telegram alerts", "Dashboard"],
+  next: ["Simulated portfolio tracking against SPUS", "Full S&P 500 coverage on a paid data plan"],
   repo: "https://github.com/izzahff/tayyib",
+  live: "https://tayyib-peach.vercel.app/",
 };
 
 export const projects: Project[] = [
