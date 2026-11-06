@@ -5,7 +5,7 @@ import { tayyib } from "../../data";
 
 export const metadata: Metadata = {
   title: "Tayyib",
-  description: "How Izzah Farhanah built Tayyib, which checks large US companies against Shariah screening rules and shortlists the strongest each week.",
+  description: "How Izzah Farhanah built Tayyib, which checks S&P 500 companies against Shariah screening rules and shortlists the ten with the strongest momentum each week.",
 };
 
 const steps = [
@@ -81,13 +81,13 @@ export default function TayyibCase() {
               </ol>
               <div className="prose" style={{ marginTop: 40 }}>
                 <p>
-                  A GitHub Actions job runs the whole pipeline every Monday at 9am Malaysia time. One bad ticker can't
+                  A GitHub Actions job is scheduled to run the whole pipeline every Monday at 9am Malaysia time. One bad ticker can't
                   sink a run. If the API fails for one stock, the pipeline records that stock as unscreened with the
                   reason <code>financial data fetch failed</code> and moves on. A pipeline-wide failure marks the whole
                   run as failed and sends a Telegram alert, so I never mistake half a run for a full one.
                 </p>
                 <p>
-                  The free data plan covers 41 S&amp;P 500 companies, so the weekly run screens that sample for now.
+                  The free data plan covers at least 41 S&amp;P 500 companies so far, so the weekly run screens that sample for now.
                 </p>
               </div>
             </div>
@@ -129,7 +129,9 @@ export default function TayyibCase() {
                   The first live run taught me something. It passed only 1 of 25 stocks, because I had divided total
                   liabilities by total assets. That counted supplier bills and deferred revenue as debt, and called
                   Apple 72% indebted. AAOIFI counts only interest-bearing debt, so I wrote a new spec, switched the
-                  numerator to total debt, and stopped losses from cancelling out real interest income.
+                  numerator to total debt. Reading the output again, I found a second bug. A non-operating loss
+                  could cancel out interest income, which let one stock score −21.6% and pass. Now each income figure
+                  counts only when positive. The next run applies the corrected rules.
                 </p>
                 <p>
                   A value equal to the limit passes. The spec states that boundary rule outright, so a ratio of

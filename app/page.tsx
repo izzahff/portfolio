@@ -19,7 +19,7 @@ function Dots({ items }: { items: string[] }) {
     <span className="dots">
       {items.map((it, i) => (
         <span key={it}>
-          {i > 0 && <span className="sep" aria-hidden="true"> . </span>}
+          {i > 0 && <span className="sep" aria-hidden="true"> · </span>}
           {it}
         </span>
       ))}
@@ -109,6 +109,7 @@ export default function Home() {
                   ))}
                 </tbody>
               </table>
+              <p className="ratios-note">{tayyib.disclaimer}</p>
               <div className="progress">
                 <div>
                   <h4>Built and tested</h4>

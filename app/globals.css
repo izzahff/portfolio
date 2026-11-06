@@ -209,6 +209,7 @@ summary:hover { background: var(--ink); color: var(--bg); }
 .panel .ratios td.limit { color: var(--gold); font-size: 2rem; font-weight: 800; text-align: right; }
 .ticks li { position: relative; padding-left: 18px; margin-bottom: 10px; }
 .ticks li::before { content: ""; position: absolute; left: 2px; top: 0.6em; width: 6px; height: 6px; background: var(--ink); }
+.ratios-note { margin: 10px 0 0; font-size: 0.85rem; font-style: italic; color: #a6a6a6; }
 .disclaimer { max-width: 760px; margin: 56px auto 0; padding: 0 20px; text-align: center; color: var(--muted); font-size: 0.9rem; font-style: italic; }
 
 @media (max-width: 900px) {
